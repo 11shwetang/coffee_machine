@@ -1,0 +1,36 @@
+plugins {
+	id 'org.springframework.boot' version '2.3.2.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'java'
+}
+
+group = 'com.coffee'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation 'com.fasterxml.jackson.core:jackson-core:2.10.1'
+	implementation 'com.fasterxml.jackson.core:jackson-annotations:2.10.1'
+	implementation 'com.fasterxml.jackson.core:jackson-databind:2.10.1'
+	implementation "com.google.guava:guava:16+"
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+	testImplementation(
+			'junit:junit:4.12',
+			'org.junit.jupiter:junit-jupiter-api:5.4.2'
+	)
+	testRuntime(
+			'org.junit.jupiter:junit-jupiter-engine:5.4.2',
+			'org.junit.vintage:junit-vintage-engine:5.4.2'
+	)
+}
+
+test {
+	useJUnitPlatform()
+}
